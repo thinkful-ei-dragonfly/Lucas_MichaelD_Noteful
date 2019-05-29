@@ -25,9 +25,9 @@ export default class App extends React.Component {
         <Route path='/note/:noteid' component={GoBackSidebar} />
       </aside>
       <main>
-        <Route exact path='/' render={notes => <AllNotes notes={this.state.store.notes} />} />
+        <Route exact path='/' render={(props, notes) => <AllNotes {...props} notes={this.state.store.notes} />} />
         <Route path='/folder/:folderid' component={Folder} />
-        <Route path='/note/:noteid' component={Note} />
+        <Route path='/note/:noteid' render={(props, notes) => <Note {...props} notes={this.state.store.notes} />} />
       </main>
     </div>
     )
