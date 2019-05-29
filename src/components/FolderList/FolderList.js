@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default class FolderList extends React.Component{
   constructor(props) {
@@ -6,9 +7,11 @@ export default class FolderList extends React.Component{
 
     this.FolderList = props.folders.map(folders => {
       return (
-        <div key={folders.id}>
-          <p>{folders.name}</p>
+        <Link to={`/folder/${folders.id}`} key={folders.id}>
+        <div>
+        <p>{folders.name}</p>
         </div>
+        </Link>
       )
     })
   }
@@ -17,6 +20,7 @@ export default class FolderList extends React.Component{
     return (
       <ul>
         { this.FolderList }
+        <button>Add Folder</button>
       </ul>
     )
   }

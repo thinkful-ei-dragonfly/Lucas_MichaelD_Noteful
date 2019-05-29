@@ -27,8 +27,8 @@ export default class App extends React.Component {
             )}
           />
           <Route path="/folder/:folderid" component={Folder} />
-          <Route path="/note/:noteid" render = {(props, folders) => (
-            <GoBackSidebar {...props} folders={this.state.store.folders} />
+          <Route path="/note/:noteid" render = {(props, store) => (
+            <GoBackSidebar {...props} store={this.state.store} />
           )}
           />
       
@@ -41,7 +41,13 @@ export default class App extends React.Component {
               <AllNotes {...props} notes={this.state.store.notes} />
             )}
           />
-          <Route path="/folder/:folderid" component={Folder} />
+          <Route 
+            path="/folder/:folderid" 
+            render={(props, notes) => (
+              <Folder {...props} notes={this.state.store.notes} />
+          )}
+          />
+          
           <Route
             path="/note/:noteid"
             render={(props, notes) => (
