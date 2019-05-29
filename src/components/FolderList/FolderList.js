@@ -1,11 +1,22 @@
 import React from 'react'
 
 export default class FolderList extends React.Component{
-  render(){
+  constructor(props) {
+    super(props);
+
+    this.FolderList = props.folders.map(folders => {
+      return (
+        <div key={folders.id}>
+          <p>{folders.name}</p>
+        </div>
+      )
+    })
+  }
+  
+    render(){
     return (
       <ul>
-        UNSTYLED list of folders
-        HOME PAGE
+        { this.FolderList }
       </ul>
     )
   }
