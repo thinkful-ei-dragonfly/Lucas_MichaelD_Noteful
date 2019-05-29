@@ -17,11 +17,8 @@ export default class AllNotes extends React.Component {
       )
 
     })
-    debugger;
   }
 
-  // write function to map over props and return li
-  // elements with <Link to="note/${link.id}"
   render() {
     return (
       <ul>
