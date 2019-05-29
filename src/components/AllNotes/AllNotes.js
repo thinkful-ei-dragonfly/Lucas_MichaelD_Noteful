@@ -6,7 +6,7 @@ export default class AllNotes extends React.Component {
 
   constructor(props){
     super(props);
-    this.notes = props.notes.map(note => {
+    this.notes = this.props.notes.map(note => {
       return (
         <li className='listNote' key={note.id}>
           <Link to={`/note/${note.id}`}>{note.name}</Link>
@@ -15,6 +15,10 @@ export default class AllNotes extends React.Component {
         </li>
       )
     })
+  }
+
+  componentDidMount() {
+
   }
 
   render() {

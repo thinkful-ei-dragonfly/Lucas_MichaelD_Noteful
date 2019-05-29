@@ -26,12 +26,12 @@ export default class App extends React.Component {
               <FolderList {...props} folders={this.state.store.folders} />
             )}
           />
-          <Route path="/folder/:folderid" component={Folder} />
+          <Route path="/folder/:folderid" component={CurrentFolder} />
           <Route path="/note/:noteid" render = {(props, store) => (
             <GoBackSidebar {...props} store={this.state.store} />
           )}
           />
-      
+
         </aside>
         <main>
           <Route
@@ -41,13 +41,13 @@ export default class App extends React.Component {
               <AllNotes {...props} notes={this.state.store.notes} />
             )}
           />
-          <Route 
-            path="/folder/:folderid" 
-            render={(props, notes) => (
-              <Folder {...props} notes={this.state.store.notes} />
-          )}
+          <Route
+            path="/folder/:folderid"
+            render={(props, notes) => {
+              return <Folder {...props} notes={this.state.store.notes} />
+            }}
           />
-          
+
           <Route
             path="/note/:noteid"
             render={(props, notes) => (
